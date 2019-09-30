@@ -1,0 +1,69 @@
+package com.company;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class Demo {
+    public static void main(String[] args) {
+        LinkedList<String> placestoVisit = new LinkedList<String>();
+        
+        //  CODE SHOWING DIFFERENT OPERATIONS OF LINKED LIST LIKE PRINTING,ADDING,REMOVING
+       /* placestoVisit.add("Delhi");
+        placestoVisit.add("Ghaziabad");
+        placestoVisit.add("Aligarh");
+        placestoVisit.add("Agra");
+        placestoVisit.add("jammu");
+        printList(placestoVisit);
+        placestoVisit.add(1,"Aurangabad");
+        printList(placestoVisit);
+
+        placestoVisit.remove(4);
+        printList(placestoVisit);*/
+        
+        
+        // CODE SHOWING PRINT VALUES IN ALPHABETICAL ORDER USING ADDINORDER METHOD
+        addInOrder(placestoVisit,"Delhi");
+        addInOrder(placestoVisit,"Ghaziabad");
+        addInOrder(placestoVisit,"Aligarh");
+        addInOrder(placestoVisit,"Agra");
+        addInOrder(placestoVisit,"Jammu");
+        addInOrder(placestoVisit,"Kanpur");
+        printList(placestoVisit);
+        addInOrder(placestoVisit,"Lucknow");
+        addInOrder(placestoVisit,"Delhi");
+        printList(placestoVisit);
+
+
+
+    }
+    private static void printList(LinkedList<String> LinkedList){
+        Iterator<String> i = LinkedList.iterator();
+        while(i.hasNext()){
+            System.out.println("Now visiting "+i.next());
+        }
+        System.out.println("==============================");
+    }
+    private static boolean addInOrder(LinkedList<String> LinkedList, String newCity){
+        ListIterator<String> stringListIterator = LinkedList.listIterator();
+
+        while(stringListIterator.hasNext()){
+            int comparision = stringListIterator.next().compareTo(newCity);
+            if(comparision==0){
+                System.out.println(newCity+" is already included as a destination");
+                return false;
+            }
+            else if(comparision>0){
+                stringListIterator.previous();
+                stringListIterator.add(newCity);
+                return true;
+            }
+            else if(comparision<0){
+
+            }
+        }
+        stringListIterator.add(newCity);
+        return true;
+    }
+
+}
