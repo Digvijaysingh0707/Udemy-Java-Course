@@ -1,0 +1,25 @@
+package com.company;
+
+public class EnhancedPlayer {
+    private String name;
+    private int hitpoints =100; // it is the default value
+    private String weapon;
+
+    public EnhancedPlayer(String name, int health, String weapon) {
+        this.name = name;
+        if(health>=0&&health<=100) {
+            this.hitpoints = health;
+        }
+        this.weapon = weapon;
+    }
+    public void looseHealth(int damage){
+        this.hitpoints -=damage;
+        if(this.hitpoints <0){
+            System.out.print("Player is knocked out");
+        }
+    }
+
+    public int getHitpoints() {
+        return hitpoints;
+    }
+}
