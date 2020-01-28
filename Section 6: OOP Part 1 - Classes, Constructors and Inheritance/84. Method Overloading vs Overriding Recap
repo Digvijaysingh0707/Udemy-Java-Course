@@ -1,0 +1,4 @@
+Method overLoading: 2 Methods with same names but different parameters
+Method overriding: defininhg a method in a child class that already exist in parent class
+Laso called Run time Polymorphism and Dynamic method Dispatch
+instance method cannot be overRiden
